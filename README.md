@@ -2,7 +2,6 @@
 
 [![GoDoc](https://godoc.org/github.com/cevatbarisyilmaz/gstats?status.svg)](https://godoc.org/github.com/cevatbarisyilmaz/gstats)
 [![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/cevatbarisyilmaz/gstats?sort=semver)](https://github.com/cevatbarisyilmaz/gstats/releases)
-[![GitHub](https://img.shields.io/github/license/cevatbarisyilmaz/gstats)](https://github.com/cevatbarisyilmaz/gstats/blob/master/LICENSE)
 [![Go Report Card](https://goreportcard.com/badge/github.com/cevatbarisyilmaz/gstats)](https://goreportcard.com/report/github.com/cevatbarisyilmaz/gstats)
 
 Realtime HTTP Stats for Go.
@@ -42,3 +41,16 @@ Then go to http://localhost/gstats
 * Visitor OS Stats
 * Visitor Browser Stats
 * Bandwidth
+
+## License
+
+Creative Commons Attribution-ShareAlike 4.0 International with default geolocation source. MIT otherwise.
+See https://github.com/cevatbarisyilmaz/gstats/blob/master/LICENSE.md for details.
+
+## Production Usage
+
+gstats are still in early development stage. Be catious for production usages.
+
+## Attribution
+
+This product includes GeoLite2 data created by MaxMind, available from https://www.maxmind.com
