@@ -41,3 +41,4 @@ Then go to http://localhost/gstats
 * Referrers
 * Visitor OS Stats
 * Visitor Browser Stats
+* Bandwidth
