@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"math"
 	"net"
+	"net/http"
 	"sort"
 	"time"
 )
@@ -342,7 +343,7 @@ func (r *requestPathRecord) toHighlightedRequestPathRecord() *highlightedRequest
 	var highestNonSuccessStatusCodeAmount int
 	for statusCode, amount := range r.statusCodes {
 		totalAmount += amount
-		if statusCode >= 200 && statusCode < 300 {
+		if (statusCode >= 200 && statusCode < 300) || statusCode == http.StatusNotModified {
 			successStatusCodeAmount += amount
 		} else if amount > highestNonSuccessStatusCodeAmount {
 			highestNonSuccessStatusCode = statusCode

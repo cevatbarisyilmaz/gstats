@@ -2,11 +2,13 @@ package gstats
 
 import (
 	"net"
+	"sync"
 )
 
 type conn struct {
 	net.Conn
 	g *GStats
+	o *sync.Once
 }
 
 func (c *conn) Read(b []byte) (int, error) {
@@ -22,6 +24,8 @@ func (c *conn) Write(b []byte) (int, error) {
 }
 
 func (c *conn) Close() error {
-	c.g.notifyConnClose(c.Conn.RemoteAddr())
+	c.o.Do(func() {
+		c.g.notifyConnClose(c.Conn.RemoteAddr())
+	})
 	return c.Conn.Close()
 }

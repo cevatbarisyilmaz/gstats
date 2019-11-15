@@ -1,6 +1,9 @@
 package gstats
 
-import "net"
+import (
+	"net"
+	"sync"
+)
 
 type listener struct {
 	net.Listener
@@ -16,5 +19,6 @@ func (l *listener) Accept() (net.Conn, error) {
 	return &conn{
 		Conn: c,
 		g:    l.g,
+		o:    &sync.Once{},
 	}, nil
 }
