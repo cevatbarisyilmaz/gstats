@@ -142,8 +142,8 @@ func (d *data) toHighlightedData() *highlightedData {
 	sort.Slice(requestPaths, func(i, j int) bool {
 		return math.Sqrt(float64(requestPaths[i].Requests))+float64(requestPaths[i].UniqueIPs) > math.Sqrt(float64(requestPaths[j].Requests))+float64(requestPaths[j].UniqueIPs)
 	})
-	if len(requestPaths) > 32 {
-		requestPaths = requestPaths[:32]
+	if len(requestPaths) > 64 {
+		requestPaths = requestPaths[:64]
 	}
 	var countries []*highlightedCommonRecord
 	for identifier, record := range d.countries {
@@ -154,8 +154,8 @@ func (d *data) toHighlightedData() *highlightedData {
 	sort.Slice(countries, func(i, j int) bool {
 		return countries[i].UniqueIPs > countries[j].UniqueIPs
 	})
-	if len(countries) > 16 {
-		countries = countries[:16]
+	if len(countries) > 32 {
+		countries = countries[:32]
 	}
 	var browsers []*highlightedCommonRecord
 	for identifier, record := range d.browsers {
@@ -166,8 +166,8 @@ func (d *data) toHighlightedData() *highlightedData {
 	sort.Slice(browsers, func(i, j int) bool {
 		return browsers[i].UniqueIPs > browsers[j].UniqueIPs
 	})
-	if len(browsers) > 8 {
-		browsers = browsers[:8]
+	if len(browsers) > 16 {
+		browsers = browsers[:16]
 	}
 	var oss []*highlightedCommonRecord
 	for identifier, record := range d.oss {
@@ -178,8 +178,8 @@ func (d *data) toHighlightedData() *highlightedData {
 	sort.Slice(oss, func(i, j int) bool {
 		return oss[i].UniqueIPs > oss[j].UniqueIPs
 	})
-	if len(oss) > 8 {
-		oss = oss[:8]
+	if len(oss) > 16 {
+		oss = oss[:16]
 	}
 	var referrers []*highlightedCommonRecord
 	for identifier, record := range d.referrers {
@@ -190,8 +190,8 @@ func (d *data) toHighlightedData() *highlightedData {
 	sort.Slice(referrers, func(i, j int) bool {
 		return referrers[i].UniqueIPs > referrers[j].UniqueIPs
 	})
-	if len(referrers) > 32 {
-		referrers = referrers[:32]
+	if len(referrers) > 64 {
+		referrers = referrers[:64]
 	}
 	return &highlightedData{
 		Requests:          d.requests,
