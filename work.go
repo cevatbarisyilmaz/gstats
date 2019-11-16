@@ -62,7 +62,7 @@ func (g *GStats) collectDailyRecord(t time.Time) *data {
 }
 
 func (g *GStats) recordDay(t time.Time) {
-	saveHighlights(g.root+strconv.Itoa(t.Year())+"/"+strconv.Itoa(int(t.Month()))+strconv.Itoa(t.Day())+"/highlights.json", g.collectDailyRecord(t))
+	saveHighlights(g.root+strconv.Itoa(t.Year())+"/"+strconv.Itoa(int(t.Month()))+"/"+strconv.Itoa(t.Day())+"/highlights.json", g.collectDailyRecord(t))
 }
 
 func (g *GStats) collectMonthlyRecord(t time.Time) *data {
