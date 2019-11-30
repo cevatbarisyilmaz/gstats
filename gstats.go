@@ -177,9 +177,10 @@ func (g *GStats) notifyRequest(request *http.Request, statusCode int, responseSi
 		}
 	}
 	var referrerRecord *commonRecord
+	request.URL.Host = request.Host
 	g.dataMu.Lock()
 	g.data.requests++
-	reqRec := g.getRequestPathRecord(request.URL.Path)
+	reqRec := g.getRequestPathRecord(request.URL.String())
 	browserRec := g.getBrowserRecord(browserKey)
 	osRec := g.getOSRecord(userAgent.OSInfo().Name)
 	country, _ := g.Country(ip)
