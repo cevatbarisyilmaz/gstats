@@ -36,5 +36,5 @@ func (c *collect) ServeHTTP(writer http.ResponseWriter, request *http.Request) {
 	start := time.Now()
 	c.h.ServeHTTP(w, request)
 	end := time.Now()
-	c.g.notifyRequest(request, w.statusCode, w.bytesWritten, end.Sub(start))
+	go c.g.notifyRequest(request, w.statusCode, w.bytesWritten, end.Sub(start))
 }
