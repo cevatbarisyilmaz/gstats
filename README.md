@@ -1,3 +1,5 @@
+DISCONTINUED DUE TO PERFORMANCE PROBLEMS
+
 # gstats
 
 [![GoDoc](https://godoc.org/github.com/cevatbarisyilmaz/gstats?status.svg)](https://godoc.org/github.com/cevatbarisyilmaz/gstats)
